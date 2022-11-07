@@ -1,21 +1,53 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import "./auth.css";
-const Auth = () => {
-  const [isSignup, setIsSignup] = useState(false);
 
-  const handleSubmit = () => {};
+const Auth = () => {
+  const dispatch = useDispatch();
+  const [isSignup, setIsSignup] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   return (
     <div className="auth__container">
       <h1>{!isSignup ? "Sign up" : "Sign In"}</h1>
       <form onSubmit={handleSubmit}>
         {!isSignup && (
           <div>
-            <input type="text" placeholder="Name" label="Name" />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              label="Name"
+              onChange={handleChange}
+            />
           </div>
         )}
         <div>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Password" />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
         </div>
         <button type="submit">Submit</button>
         <button
