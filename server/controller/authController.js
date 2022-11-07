@@ -10,6 +10,8 @@ export const singUp = async (req, res) => {
     return res.json({ message: "User already exists" });
   }
 
+  const hashedPassword = bcrypt.hashSync(password, 12);
+
   try {
   } catch (error) {}
 };
