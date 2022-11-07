@@ -1,0 +1,17 @@
+.auth__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth__container input{
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 5px 0px;
+}
+
+.auth__container button {
+    width: 50%;
+}
