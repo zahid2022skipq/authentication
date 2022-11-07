@@ -1,4 +1,4 @@
-{
+{"type": "module",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
@@ -8,6 +8,7 @@
     "nodemon": "^2.0.20"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --experimental-modules --es-module-specifier-resolution=node index.js"
+
   }
 }

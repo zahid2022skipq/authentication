@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import "./auth.css";
+import { singUp } from "../../actions/auth";
 
 const Auth = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Auth = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    dispatch(singUp(formData));
   };
 
   const handleChange = (e) => {
