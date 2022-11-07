@@ -24,7 +24,7 @@ const Auth = () => {
             setIsSignup(!isSignup);
           }}
         >
-          {!isSignup ? "Already a user Signin" : "New User SignUp"}
+          {!isSignup ? "Already user Signin" : "New User SignUp"}
         </button>
       </form>
     </div>
