@@ -12,6 +12,19 @@ export const singUp = async (req, res) => {
 
   const hashedPassword = bcrypt.hashSync(password, 12);
 
+  const result = await new User({
+    name: name,
+    email: email,
+    password: hashedPassword,
+  });
+  await result.save();
+
+  const token = jwt.sign({ email: result.email, id: result._id }, "secret", {
+    expiresIn: "1hr",
+  });
+
+  return res.status(200).json({ result, token });
+
   try {
   } catch (error) {}
 };
