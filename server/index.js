@@ -1,8 +1,10 @@
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 import router from "./routes/authRoutes.js";
 
+dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.urlencoded());
@@ -11,9 +13,7 @@ app.use("/user", router);
 const PORT = 5000;
 
 mongoose
-  .connect(
-    "mongodb+srv://zahidali:Hackersonly123@cluster0.djdawwu.mongodb.net/?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_CONNECTION_STRING)
   .then(() => {
     app.listen(PORT, () => {
       console.log("App listening on ", PORT);

@@ -3,8 +3,8 @@ import bcrypt from "bcrypt";
 import User from "../model/User";
 
 export const signUp = async (req, res) => {
+  const { name, email, password } = req.body;
   try {
-    const { name, email, password } = req.body;
     const userExists = await User.findById({ email });
 
     if (userExists) {
