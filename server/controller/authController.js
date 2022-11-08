@@ -4,8 +4,9 @@ import User from "../model/User";
 
 export const signUp = async (req, res) => {
   const { name, email, password } = req.body;
+  console.log("Sign Up Controller");
   try {
-    const userExists = await User.findById({ email });
+    const userExists = await User.findOne({ email });
 
     if (userExists) {
       return res.json({ message: "User already exists" });
